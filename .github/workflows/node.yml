@@ -17,6 +17,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Run Super-Linter
+      uses: github/super-linter@v3
+      env:
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        JAVASCRIPT_DEFAULT_STYLE: prettier
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
